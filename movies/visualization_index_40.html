@@ -627,14 +627,17 @@
         $('#s1-ranking').change(function () {
             var selectedItem = $('#s1-ranking').val();
             save_results['ranking']["s1-ranking"] = selectedItem;
+            console.log("ranking-s1", selectedItem)
         });
         $('#s3-ranking').change(function () {
             var selectedItem = $('#s3-ranking').val();
             save_results['ranking']["s3-ranking"] = selectedItem;
+            console.log("ranking-s3", selectedItem)
         });
         $('#s5-ranking').change(function () {
             var selectedItem = $('#s5-ranking').val();
             save_results['ranking']["s5-ranking"] = selectedItem;
+            console.log("ranking-s5", selectedItem)
         });
         $('#s7-ranking').change(function () {
             var selectedItem = $('#s7-ranking').val();
@@ -690,7 +693,7 @@
             save_results['feedback'] = feedback;
 
             // Rank
-            console.log("ranking results:", save_results)
+            console.log("ranking results:", save_results['ranking'])
 
 
             //saving to localStorage

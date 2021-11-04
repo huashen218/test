@@ -13,7 +13,7 @@
 
     <body>
 
-	<form name="mturk_form" method="post" id="mturk_form" action="https://www.mturk.com/mturk/externalSubmit">
+	<!-- <form name="mturk_form" method="post" id="mturk_form" action="https://www.mturk.com/mturk/externalSubmit"> -->
 		
     <section class="container">
         <div id="main-container">
@@ -117,7 +117,7 @@
 
                     <div class="card" id="sparsity30">
 
-                        <div class="card-header" id="s3-header">
+                        <div class="card-header" id="rationale-header">
                             Rationale Length = <b>50%</b> of full Moview Review
                         </div>
 
@@ -136,146 +136,169 @@
                                         </p>
 
                                         <div id="viewer-checkbox-container" class="text-center" style="margin: 10px auto 10px auto;">
+
                                             <div class="form-check form-check-inline">
-                                                <button type="button" class="btn btn-danger" style="margin-right:50px">Positive</button>
+                                                <button type="button" class="btn btn-danger" style="margin-right:50px" value="positive" onclick=SelectSentimentLabel(this)>Positive</button>
                                             </div>
+
                                             <div class="form-check form-check-inline">
-                                                <button type="button" class="btn btn-warning" style="margin-left:50px;margin-right:50px">Negative</button>
+                                                <button type="button" class="btn btn-warning" style="margin-left:50px;margin-right:50px" value="negative" onclick=SelectSentimentLabel(this)>Negative</button>
                                             </div>
+
                                             <div class="form-check form-check-inline">
-                                                <button type="button" class="btn btn-secondary" style="margin-left:50px">Can't Tell</button>
+                                                <button type="button" class="btn btn-secondary" style="margin-left:50px" value="not" onclick=SelectSentimentLabel(this)>Can't Tell</button>
                                             </div>
+
                                         </div>
-
-                                        
-                                        
-
                                     </div>
                                 </li>
+
 
                                 <li class="list-group-item">
                                     <div class="card-body"  id="question2">
                                         <p class="card-text">
                                             <span><strong>Question2</strong></span>: How <strong>Confident</strong> are you in your above selection?
                                         </p>
+
                                         <div id="viewer-checkbox-container" class="text-left" style="margin: 10px auto 10px auto;">
                                         
-                                        <button type="button" class="btn btn-outline-primary covid-focus-btn unselected-focus" style="margin-bottom:10px">3 - Very Confident (Go to next review)</button>
+                                        <button type="button" class="btn btn-outline-primary covid-focus-btn unselected-focus" style="margin-bottom:10px" onclick=SelectNavigation(this) value="3">3 - Very Confident (Go to next review)</button>
                                         <span class="text-primary"> - The rationale shows clear sentiment comment on the movie review.</span>
                                         <br>
-                                        <button covid-focus="background" type="button" class="btn btn-outline-info covid-focus-btn unselected-focus" style="margin-bottom:10px">2 - Hesitating (Need longer rationale)</button>
+
+                                        <button covid-focus="background" type="button" class="btn btn-outline-info covid-focus-btn unselected-focus" style="margin-bottom:10px" onclick=SelectNavigation(this) value="2">2 - Hesitating (Need longer rationale)</button>
                                         <span class="text-info"> - The rationale shows sentimental words, but might not directly for this movie.</span>
                                         <br>
-                                        <button covid-focus="background" type="button" class="btn btn-outline-secondary covid-focus-btn unselected-focus">1 - I don't know (Need longer rationale)</button>
+
+                                        <button covid-focus="background" type="button" class="btn btn-outline-secondary covid-focus-btn unselected-focus" onclick=SelectNavigation(this) value="1">1 - I don't know (Need longer rationale)</button>
                                         <span class="text-secondary"> - The rationale doesn't show sentimental information on the movie.</span>
                                         <br>
+
                                     </div>
                                     </div>
                                 </li>
+
+                                <!-- <p class="text-center">
+                                    <input type="submit" id="submitButton" class="btn btn-primary btn-block" value="Submit HIT" onclick="OnSubmit()">
+                                </p> -->
+
+                                <div class="card" id="feedback">
+                                    <button type="submit" class="btn btn-primary" onclick="OnSubmit()">Submit</button>
+                                </div>
+
                         </div>
                     </div>
 
                 </div>
                 <br>
-
-                <p class="text-center">
-                    <input type="submit" id="submitButton" class="btn btn-primary btn-block" value="Submit HIT">
-                </p>
-
             </div>
         </div>
     </section>
 
-    </form>
 
+
+    <style type="text/css">
+
+        .color-background{
+            background-color: #a6cee3;
+            color:black;
+        }
+        .color-purpose{
+            background-color: #1f78b4;
+            color:white;
+        }
+        .color-method{
+            background-color: #b2df8a;
+            color:black;
+        }
+        .color-finding{
+            background-color: #33a02c;
+            color:white;
+        }
+        .color-other{
+            background-color: black;
+            color:white;
+        }
+    
+        .highlight-rationale{
+            background-color:#FBDFC2;
+            color:#BE0004
+        }
+        .dehighlight-rationale{
+            background-color:#E2E8E8;
+            color:#DAE1E7
+        }
+    
+    </style>
+    
 
     <script>
 
-        var save_results = {}
-        save_results['ranking'] = {}
+        var sentiment_label = ""
+        function SelectSentimentLabel(btn){
+            sentiment_label = btn.value;
+            console.log("sentiment_label", sentiment_label)
+        }
 
-        function selectButton(btn) {
-            if (btn.style.backgroundColor == "rgb(235, 235, 235)"){
-                btn.style.backgroundColor = "#0B61FF";
-                save_results[btn.name] = btn.value
-            } else {
-                btn.style.backgroundColor = "#EBEBEB";
-                save_results[btn.name] = null;
+        var next_navigation = ""
+        var confidence = ""
+        function SelectNavigation(btn){
+            if (btn.value == "3"){
+                next_navigation = "next_index";
+                confidence = btn.value;
+            }
+            else{
+                next_navigation = "next_sparsity";
+                confidence = btn.value;
             }
         }
 
 
-
-        $('#s1-ranking').change(function () {
-            var selectedItem = $('#s1-ranking').val();
-            save_results['ranking']["s1-ranking"] = selectedItem;
-            console.log("ranking-s1", selectedItem)
-        });
-        $('#s3-ranking').change(function () {
-            var selectedItem = $('#s3-ranking').val();
-            save_results['ranking']["s3-ranking"] = selectedItem;
-            console.log("ranking-s3", selectedItem)
-        });
-        $('#s5-ranking').change(function () {
-            var selectedItem = $('#s5-ranking').val();
-            save_results['ranking']["s5-ranking"] = selectedItem;
-            console.log("ranking-s5", selectedItem)
-        });
-        $('#s7-ranking').change(function () {
-            var selectedItem = $('#s7-ranking').val();
-            save_results['ranking']["s7-ranking"] = selectedItem;
-        });
-        $('#s9-ranking').change(function () {
-            var selectedItem = $('#s9-ranking').val();
-            save_results['ranking']["s9-ranking"] = selectedItem;
-        });
-        
-
+        var save_results = {}
+        var sparsity_end = 0.5;
 
         function OnSubmit(){
 
-            var q1_results = document.getElementsByName('s1-inlineRadioOptions');
-            for(i=0; i< q1_results.length; i++) {
-                if (q1_results[i].checked){
-                    save_results[q1_results[i].id] = q1_results[i].value
+
+            console.log("on submission");
+
+            save_results["sentiment_label"] = sentiment_label;
+            save_results["confidence"] = confidence;
+            save_results["next_navigation"] = next_navigation;
+
+            var current_url = window.location.href
+
+            var splits = current_url.split("_");
+            var index_split = splits[splits.length-2];
+            var index = index_split.substring(5,);
+            var sparsity_split = splits[splits.length - 1];
+            var sparsity = sparsity_split.substring(8, sparsity_split.length - 5);
+            var new_url_root = splits.slice(0, splits.length-2).join("_");
+
+
+            var new_index = (parseInt(index)+1).toString();
+            var new_url_index = new_url_root+"_index"+new_index+"_sparsity0.1.html";
+
+            var new_sparsity = (parseFloat(sparsity)+0.1).toFixed(1).toString();
+            var new_url_sparsity = new_url_root+"_"+splits[splits.length-2]+"_"+"sparsity"+new_sparsity+".html";
+
+            if (next_navigation == "next_index"){
+                location.replace(new_url_index)
+                save_results["current_url"] = current_url
+                save_results["new_url"] = new_url_index
+
+            }
+            else{
+                if(sparsity < sparsity_end){
+                    location.replace(new_url_sparsity)
+                    save_results["current_url"] = current_url
+                    save_results["new_url"] = new_url_sparsity
+                }else{
+                    location.replace(new_url_index)
+                    save_results["current_url"] = current_url
+                    save_results["new_url"] = new_url_index
                 }
             }
-
-            var q3_results = document.getElementsByName('s3-inlineRadioOptions');
-            for(i=0; i< q3_results.length; i++) {
-                if (q3_results[i].checked){
-                    save_results[q3_results[i].id] = q3_results[i].value
-                }
-            }
-
-            var q5_results = document.getElementsByName('s5-inlineRadioOptions');
-            for(i=0; i< q5_results.length; i++) {
-                if (q5_results[i].checked){
-                    save_results[q5_results[i].id] = q5_results[i].value
-                }
-            }
-
-            var q7_results = document.getElementsByName('s7-inlineRadioOptions');
-            for(i=0; i< q7_results.length; i++) {
-                if (q7_results[i].checked){
-                    save_results[q7_results[i].id] = q7_results[i].value
-                }
-            }
-
-            var q9_results = document.getElementsByName('s9-inlineRadioOptions');
-            for(i=0; i< q9_results.length; i++) {
-                if (q9_results[i].checked){
-                    save_results[q9_results[i].id] = q9_results[i].value
-                }
-            }
-
-
-            // Feedback
-            var feedback = document.getElementById('FormControlTextarea').value;
-            save_results['feedback'] = feedback;
-
-            // Rank
-            console.log("ranking results:", save_results['ranking'])
 
 
             //saving to localStorage
@@ -290,50 +313,14 @@
                 a.click();
             }
 
-            // download(localStorage["MyResult"], 'json.txt', 'text/plain');
-            download(localStorage["MyResult"], '{{save_file}}', 'text/plain');
-        }
+            download(localStorage["MyResult"], './local/result.json', 'text/plain');
 
+        }
 
     </script>
 
-    <style type="text/css">
 
-    .color-background{
-        background-color: #a6cee3;
-        color:black;
-    }
-    .color-purpose{
-        background-color: #1f78b4;
-        color:white;
-    }
-    .color-method{
-        background-color: #b2df8a;
-        color:black;
-    }
-    .color-finding{
-        background-color: #33a02c;
-        color:white;
-    }
-    .color-other{
-        background-color: black;
-        color:white;
-    }
-
-    .highlight-rationale{
-        background-color:#FBDFC2;
-        color:#BE0004
-    }
-    .dehighlight-rationale{
-        background-color:#E2E8E8;
-        color:#DAE1E7
-    }
-
-    </style>
-
-
-
-
+    <!-- </form> -->
     <script language="Javascript">turkSetAssignmentID();</script>
 
     </body>

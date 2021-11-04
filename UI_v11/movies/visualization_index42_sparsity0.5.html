@@ -313,7 +313,9 @@
                 a.click();
             }
 
-            download(localStorage["MyResult"], './local/result.json', 'text/plain');
+            // root_save_dir = "https://github.com/huashen218/test/blob/master/UI_v11/movies/results/"
+            root_save_dir = "result_"+ "index" + index + "_sparsity" + sparsity + ".json"
+            download(localStorage["MyResult"], root_save_dir, 'text/plain');
 
         }
 

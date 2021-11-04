@@ -1,0 +1,341 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+
+    <title>Human Annotation for Different Rationale Lengths</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <script type="text/javascript" src="https://s3.amazonaws.com/mturk-public/externalHIT_v1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    </head>
+
+    <body>
+
+	<form name="mturk_form" method="post" id="mturk_form" action="https://www.mturk.com/mturk/externalSubmit">
+		
+    <section class="container">
+        <div id="main-container">
+
+        <div class="card ">
+            <div class="card-header text-white bg-primary"><strong>Instructions</strong></div>
+            
+                <div class="card-body" id="rationale-forms">
+                    In this HIT, you will see <b>partial contents</b> of one <b>movie review</b>, named a <b>"Rationale"</b>. 
+                    <br>
+                    <br>
+                    Based on the shown contents, you need to <b>select</b> the <b>sentiment labels</b> (i.e., Positive or Negative) on this movie review. 
+                    <br>
+                    <br>
+                    Further, you will tell us your <b>confidence on the selection</b>. Below are the three examples explaining different confidence levels.
+                    <br>
+                    <br>
+
+
+
+                    <div class="card" id="sparsity10">
+
+                        <div class="card-header" id="s1-header">
+                            Examples
+                            <input type="hidden" name="focus-fragment-1" id="focus-fragment-1" required="required" value="finding">
+                        </div>
+
+
+                        <div class="card-body">
+                            <p class="card-text" id="s1_text">
+                                <p>Here is a movie review example, with a <b>Positive</b> sentiment label: </p>
+                                <p class="p-3 mb-2 bg-light text-dark" >
+                                '' the start of this movie reminded me of parts from the movie stargate . people are looking around in an egyptian temple reading about some dangerous thing that is going to destroy earth in the future . after a sort of confusing bit involving fake - looking cyborg things , the movie jumps into the future and the movie improves by leaps and bounds . the basic idea behind the movie is that every once in a while ( make that every 1000 years or so ) an evil force comes to destroy earth . the things needed to defend against this menace are the four elements of nature plus the fifth element . the plot in this movie really is n ' t that important to the thing though . this movie has very good special effects , for the most part . the techno - ish music in the background fits the mood very well . bruce willis is an illegal taxi - cab driver in a futuristic new york city . one day a lady draped with a few bandages drops down into his trunk . this movie is about what happens . the plot twists are interesting and the movie never fails to present the viewer with a variety of different locations . also there is a fair bit of action in the film , particularly towards the end . some characters are just plain strange including a highly - energetic deeja in drag . bruce willis does his normal job of blowing things away like he always does . the movie is definitely watchable and rarely slows down . it is one of those sci - fi films where you ' ll be saying " cool " followed by a " what the hell ? ! ? ! " . i give the fifth element .''
+                                </p>
+                                <p>In the HIT, we will hide the sentiment label and highlight partial content (i.e., Rationale) of this review. Then you'll be asked to:</p> 
+                                <p>1) guess the review's sentiment label given only highlighted Rationale;</p> 
+                                <p>2) tell us your confidence on the selection.</p> Here are three examples.</p>
+
+
+
+                                <li class="list-group-item">
+                                    <b class="text-dark">Example-1:</b> 
+                                    <p class="p-3 mb-2 bg-light text-dark" >
+                                        '' <span class="dehighlight-rationale">the start of this movie reminded me of parts from the movie stargate . people are looking around in an egyptian temple reading about some dangerous thing that is going to destroy earth in the future . after a sort of confusing bit involving fake - looking cyborg things , the movie jumps into the future and the movie improves by leaps and bounds . the basic idea behind the movie is that every once in a while ( make that every 1000 years or so ) an evil force comes to destroy earth . the things needed to defend against this menace are the four elements of nature plus the fifth element . the plot in this movie really is n ' t that important to the thing though .</span> <span class="highlight-rationale">this movie has very good special effects , for the most part . the techno - ish music in the background fits the mood very well .</span> <span class="dehighlight-rationale">bruce willis is an illegal taxi - cab driver in a futuristic new york city . one day a lady draped with a few bandages drops down into his trunk . this movie is about what happens . the plot twists are interesting and the movie never fails to present the viewer with a variety of different locations . also there is a fair bit of action in the film , particularly towards the end . some characters are just plain strange including a highly - energetic deeja in drag . bruce willis does his normal job of blowing things away like he always does .</span> <span class="highlight-rationale">the movie is definitely watchable and rarely slows down . it is one of those sci - fi films where you ' ll be saying " cool " followed by a " what the hell ? ! ? ! " . i give the fifth element .</span>''
+                                    </p>
+
+                                    <p><b>You Selected Label:</b> <button type="button" class="btn btn-danger">Positive</button></p>
+                                    <p><b>Confidence:</b>
+                                    <button type="button" class="btn btn-outline-primary covid-focus-btn unselected-focus" style="margin-bottom:10px">3 - Very Confident (Go to next review)</button>
+                                    <span class="text-primary"> - The rationale shows clear sentiment comment on the movie review.</span>
+                                    <p><b>Explanation:</b> The rationale clearly show the writer's sentimental opinion on the movie, such as "this movie has very good special effects". You could be <b class="text-primary">Very Confident</b> to select your sentiment label in this example. We'll then navigate you to the next movie review HIT.</p>
+                                
+                                </li>
+
+
+                                <li class="list-group-item">
+                                    <b class="text-dark">Example-2:</b> 
+                                    <p class="p-3 mb-2 bg-light text-dark" >
+                                        '' <span class="dehighlight-rationale"> the start of this movie reminded me of parts from the movie stargate . people are looking around in an egyptian temple reading about some dangerous thing that is going to destroy earth in the future . after a sort of confusing bit involving fake - looking cyborg things , the movie jumps into the future and the movie improves by leaps and bounds . the basic idea behind the movie is that every once in a while ( make that every 1000 years or so ) an evil force comes to destroy earth . the things needed to defend against this menace are the four elements of nature plus the fifth element . the plot in this movie really is n ' t that important to the thing though . this movie has very good special effects , for the most part . the techno - ish music in the background fits the mood very well . bruce willis is an illegal taxi - cab driver in a futuristic new york city . one day a lady draped with a few bandages drops down into his trunk . this movie is about what happens . the plot twists are interesting and the movie never fails to present the viewer with a variety of different locations . also there is a fair bit of action in the film , particularly towards the end .</span> <span class="highlight-rationale"> some characters are just plain strange including a highly - energetic deeja in drag . bruce willis does his normal job of blowing things away like he always does .</span> <span class="dehighlight-rationale">the movie is definitely watchable and rarely slows down . it is one of those sci - fi films where you ' ll be saying " cool " followed by a " what the hell ? ! ? ! " . i give the fifth element .</span>''
+                                    </p>
+                                    
+                                    <p><b>You Selected Label:</b> <button type="button" class="btn btn-warning">Negative</button></p>
+                                    <p><b>Confidence:</b>
+                                    <button covid-focus="background" type="button" class="btn btn-outline-info covid-focus-btn unselected-focus" style="margin-bottom:10px">2 - Hesitating (Need longer rationale)</button>
+                                    <span class="text-info"> - The rationale shows sentimental words, but might not directly for this movie.</span>
+                                    <p><b>Explanation:</b> The rationale shows some comments related to the movie, such as "some characters are just plain strange including a highly-energetic deeja in drag.", BUT they are directly evidence on showing writer's sentimental opinions on this movie. 
+                                        Therefore, you might be <b class="text-info">Hesitating</b> to select your sentiment label in this example, and need more rationale information to decide the label.</p>
+                                </li>
+
+
+                                
+                                <li class="list-group-item">
+                                    <b class="text-dark">Example-3:</b>
+                                    <p class="p-3 mb-2 bg-light text-dark" >
+                                        '' <span class="highlight-rationale">the start of this movie reminded me of parts from the movie stargate . people are looking around in an egyptian temple reading about some dangerous thing that is going to destroy earth in the future .</span> <span class="dehighlight-rationale">after a sort of confusing bit involving fake - looking cyborg things , the movie jumps into the future and the movie improves by leaps and bounds .</span> <span class="highlight-rationale">the basic idea behind the movie is that every once in a while ( make that every 1000 years or so ) an evil force comes to destroy earth . the things needed to defend against this menace are the four elements of nature plus the fifth element . the plot in this movie really is n ' t that important to the thing though .</span> <span class="dehighlight-rationale">this movie has very good special effects , for the most part . the techno - ish music in the background fits the mood very well . bruce willis is an illegal taxi - cab driver in a futuristic new york city . one day a lady draped with a few bandages drops down into his trunk . this movie is about what happens . the plot twists are interesting and the movie never fails to present the viewer with a variety of different locations . also there is a fair bit of action in the film , particularly towards the end . some characters are just plain strange including a highly - energetic deeja in drag . bruce willis does his normal job of blowing things away like he always does . the movie is definitely watchable and rarely slows down . it is one of those sci - fi films where you ' ll be saying " cool " followed by a " what the hell ? ! ? ! " . i give the fifth element .</span>''
+                                    </p>
+
+                                    <p><b>You Selected Label:</b> <button type="button" class="btn btn-secondary">Can't Tell</button></p>
+                                    <p><b>Confidence:</b>
+                                        <button covid-focus="background" type="button" class="btn btn-outline-secondary covid-focus-btn unselected-focus">1 - I don't know (Need longer rationale)</button>
+                                        <span class="text-secondary"> - The rationale doesn't show sentimental information on the movie.</span>
+                                        <p><b>Explanation:</b> The rationale doesn't show clear sentimental information on this movie. You could not decide the label and choose <b class="text-secondary">I don't know</b> as your confidenct. You also need more rationale information to decide the label.</p>
+
+                                </li>
+                            
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+
+
+        <div class="card ">
+            <div class="card-header text-white bg-info"><strong>Select Rationale Sentiment and Confidence</strong></div>
+                        
+                <div class="card-body" id="rationale-forms">
+                    Please select the <b>sentiment label of the shown rationale</b> and provide your <b>confidence on the selection</b>.
+                    <br>
+                    <br>
+
+                    <div class="card" id="sparsity30">
+
+                        <div class="card-header" id="s3-header">
+                            Rationale Length = <b>50%</b> of full Moview Review
+                        </div>
+
+
+                        <div class="card-body">
+                            <p class="card-text" id="s3_text">
+                                <p><div><span style="background-color:#E2E8E8; color:#DAE1E7">movies</span> <span style="background-color:#E2E8E8; color:#DAE1E7">like</span> <span style="background-color:#E2E8E8; color:#DAE1E7">six</span> <span style="background-color:#E2E8E8; color:#DAE1E7">days</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">seven</span> <span style="background-color:#E2E8E8; color:#DAE1E7">nights</span> <span style="background-color:#E2E8E8; color:#DAE1E7">make</span> <span style="background-color:#E2E8E8; color:#DAE1E7">me</span> <span style="background-color:#E2E8E8; color:#DAE1E7">mad</span> <span style="background-color:#E2E8E8; color:#DAE1E7">because</span> <span style="background-color:#E2E8E8; color:#DAE1E7">talented</span> <span style="background-color:#E2E8E8; color:#DAE1E7">people</span> <span style="background-color:#E2E8E8; color:#DAE1E7">like</span> <span style="background-color:#E2E8E8; color:#DAE1E7">harrison</span> <span style="background-color:#E2E8E8; color:#DAE1E7">ford</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">anne</span> <span style="background-color:#E2E8E8; color:#DAE1E7">heche</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">and</span> <span style="background-color:#E2E8E8; color:#DAE1E7">ivan</span> <span style="background-color:#E2E8E8; color:#DAE1E7">reitman</span> <span style="background-color:#E2E8E8; color:#DAE1E7">put</span> <span style="background-color:#E2E8E8; color:#DAE1E7">a</span> <span style="background-color:#E2E8E8; color:#DAE1E7">lot</span> <span style="background-color:#E2E8E8; color:#DAE1E7">of</span> <span style="background-color:#E2E8E8; color:#DAE1E7">hard</span> <span style="background-color:#E2E8E8; color:#DAE1E7">work</span> <span style="background-color:#E2E8E8; color:#DAE1E7">in</span> <span style="background-color:#E2E8E8; color:#DAE1E7">to</span> <span style="background-color:#E2E8E8; color:#DAE1E7">a</span> <span style="background-color:#E2E8E8; color:#DAE1E7">script</span> <span style="background-color:#E2E8E8; color:#DAE1E7">worth</span> <span style="background-color:#E2E8E8; color:#DAE1E7">about</span> <span style="background-color:#E2E8E8; color:#DAE1E7">ten</span> <span style="background-color:#E2E8E8; color:#DAE1E7">cents</span> <span style="background-color:#E2E8E8; color:#DAE1E7">.</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#FBDFC2; color:#BE0004">the</span> <span style="background-color:#FBDFC2; color:#BE0004">script</span> <span style="background-color:#FBDFC2; color:#BE0004">was</span> <span style="background-color:#FBDFC2; color:#BE0004">written</span> <span style="background-color:#FBDFC2; color:#BE0004">by</span> <span style="background-color:#FBDFC2; color:#BE0004">michael</span> <span style="background-color:#FBDFC2; color:#BE0004">browning</span> <span style="background-color:#FBDFC2; color:#BE0004">,</span> <span style="background-color:#FBDFC2; color:#BE0004">and</span> <span style="background-color:#FBDFC2; color:#BE0004">he</span> <span style="background-color:#FBDFC2; color:#BE0004">decided</span> <span style="background-color:#FBDFC2; color:#BE0004">that</span> <span style="background-color:#FBDFC2; color:#BE0004">,</span> <span style="background-color:#FBDFC2; color:#BE0004">instead</span> <span style="background-color:#FBDFC2; color:#BE0004">of</span> <span style="background-color:#FBDFC2; color:#BE0004">thinking</span> <span style="background-color:#FBDFC2; color:#BE0004">up</span> <span style="background-color:#FBDFC2; color:#BE0004">new</span> <span style="background-color:#FBDFC2; color:#BE0004">ideas</span> <span style="background-color:#FBDFC2; color:#BE0004">,</span> <span style="background-color:#FBDFC2; color:#BE0004">he</span> <span style="background-color:#FBDFC2; color:#BE0004">'</span> <span style="background-color:#FBDFC2; color:#BE0004">d</span> <span style="background-color:#FBDFC2; color:#BE0004">rehas</span> <span style="background-color:#FBDFC2; color:#BE0004">a</span> <span style="background-color:#FBDFC2; color:#BE0004">lot</span> <span style="background-color:#FBDFC2; color:#BE0004">of</span> <span style="background-color:#FBDFC2; color:#BE0004">cliche</span> <span style="background-color:#FBDFC2; color:#BE0004">,</span> <span style="background-color:#FBDFC2; color:#BE0004">omit</span> <span style="background-color:#FBDFC2; color:#BE0004">even</span> <span style="background-color:#FBDFC2; color:#BE0004">the</span> <span style="background-color:#FBDFC2; color:#BE0004">slightest</span> <span style="background-color:#FBDFC2; color:#BE0004">bit</span> <span style="background-color:#FBDFC2; color:#BE0004">of</span> <span style="background-color:#FBDFC2; color:#BE0004">character</span> <span style="background-color:#FBDFC2; color:#BE0004">development</span> <span style="background-color:#FBDFC2; color:#BE0004">,</span> <span style="background-color:#FBDFC2; color:#BE0004">and</span> <span style="background-color:#FBDFC2; color:#BE0004">then</span> <span style="background-color:#FBDFC2; color:#BE0004">throw</span> <span style="background-color:#FBDFC2; color:#BE0004">in</span> <span style="background-color:#FBDFC2; color:#BE0004">drug</span> <span style="background-color:#FBDFC2; color:#BE0004">-</span> <span style="background-color:#FBDFC2; color:#BE0004">dealing</span> <span style="background-color:#FBDFC2; color:#BE0004">pirates</span> <span style="background-color:#FBDFC2; color:#BE0004">to</span> <span style="background-color:#FBDFC2; color:#BE0004">provide</span> <span style="background-color:#FBDFC2; color:#BE0004">for</span> <span style="background-color:#FBDFC2; color:#BE0004">a</span> <span style="background-color:#FBDFC2; color:#BE0004">few</span> <span style="background-color:#FBDFC2; color:#BE0004">high</span> <span style="background-color:#FBDFC2; color:#BE0004">-</span> <span style="background-color:#FBDFC2; color:#BE0004">level</span> <span style="background-color:#FBDFC2; color:#BE0004">action</span> <span style="background-color:#FBDFC2; color:#BE0004">sequences</span> <span style="background-color:#FBDFC2; color:#BE0004">and</span> <span style="background-color:#FBDFC2; color:#BE0004">explosions</span> <span style="background-color:#FBDFC2; color:#BE0004">.</span> <span style="background-color:#FBDFC2; color:#BE0004">?</span> <span style="background-color:#FBDFC2; color:#BE0004">there</span> <span style="background-color:#FBDFC2; color:#BE0004">are</span> <span style="background-color:#FBDFC2; color:#BE0004">good</span> <span style="background-color:#FBDFC2; color:#BE0004">scripts</span> <span style="background-color:#FBDFC2; color:#BE0004">out</span> <span style="background-color:#FBDFC2; color:#BE0004">there</span> <span style="background-color:#FBDFC2; color:#BE0004">that</span> <span style="background-color:#FBDFC2; color:#BE0004">high</span> <span style="background-color:#FBDFC2; color:#BE0004">-</span> <span style="background-color:#FBDFC2; color:#BE0004">profile</span> <span style="background-color:#FBDFC2; color:#BE0004">actors</span> <span style="background-color:#FBDFC2; color:#BE0004">can</span> <span style="background-color:#FBDFC2; color:#BE0004">make</span> <span style="background-color:#FBDFC2; color:#BE0004">(</span> <span style="background-color:#FBDFC2; color:#BE0004">see</span> <span style="background-color:#FBDFC2; color:#BE0004">the</span> <span style="background-color:#FBDFC2; color:#BE0004">truman</span> <span style="background-color:#FBDFC2; color:#BE0004">show</span> <span style="background-color:#FBDFC2; color:#BE0004">,</span> <span style="background-color:#FBDFC2; color:#BE0004">for</span> <span style="background-color:#FBDFC2; color:#BE0004">instance</span> <span style="background-color:#FBDFC2; color:#BE0004">)</span> <span style="background-color:#FBDFC2; color:#BE0004">.</span> <span style="background-color:#FBDFC2; color:#BE0004">?</span> <span style="background-color:#FBDFC2; color:#BE0004">six</span> <span style="background-color:#FBDFC2; color:#BE0004">days</span> <span style="background-color:#FBDFC2; color:#BE0004">,</span> <span style="background-color:#FBDFC2; color:#BE0004">seven</span> <span style="background-color:#FBDFC2; color:#BE0004">nights</span> <span style="background-color:#FBDFC2; color:#BE0004">is</span> <span style="background-color:#FBDFC2; color:#BE0004">simply</span> <span style="background-color:#FBDFC2; color:#BE0004">a</span> <span style="background-color:#FBDFC2; color:#BE0004">waste</span> <span style="background-color:#FBDFC2; color:#BE0004">.</span> <span style="background-color:#E2E8E8; color:#DAE1E7">let</span> <span style="background-color:#E2E8E8; color:#DAE1E7">'</span> <span style="background-color:#E2E8E8; color:#DAE1E7">s</span> <span style="background-color:#E2E8E8; color:#DAE1E7">see</span> <span style="background-color:#E2E8E8; color:#DAE1E7">.</span> <span style="background-color:#FBDFC2; color:#BE0004">.</span> <span style="background-color:#FBDFC2; color:#BE0004">.</span> <span style="background-color:#FBDFC2; color:#BE0004">we</span> <span style="background-color:#FBDFC2; color:#BE0004">have</span> <span style="background-color:#FBDFC2; color:#BE0004">to</span> <span style="background-color:#FBDFC2; color:#BE0004">get</span> <span style="background-color:#FBDFC2; color:#BE0004">harrison</span> <span style="background-color:#FBDFC2; color:#BE0004">ford</span> <span style="background-color:#FBDFC2; color:#BE0004">and</span> <span style="background-color:#FBDFC2; color:#BE0004">anne</span> <span style="background-color:#FBDFC2; color:#BE0004">heche</span> <span style="background-color:#FBDFC2; color:#BE0004">alone</span> <span style="background-color:#FBDFC2; color:#BE0004">on</span> <span style="background-color:#FBDFC2; color:#BE0004">an</span> <span style="background-color:#FBDFC2; color:#BE0004">island</span> <span style="background-color:#FBDFC2; color:#BE0004">.</span> <span style="background-color:#FBDFC2; color:#BE0004">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">so</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">how</span> <span style="background-color:#E2E8E8; color:#DAE1E7">do</span> <span style="background-color:#E2E8E8; color:#DAE1E7">we</span> <span style="background-color:#E2E8E8; color:#DAE1E7">do</span> <span style="background-color:#E2E8E8; color:#DAE1E7">that</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">well</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">we</span> <span style="background-color:#E2E8E8; color:#DAE1E7">'</span> <span style="background-color:#E2E8E8; color:#DAE1E7">ll</span> <span style="background-color:#E2E8E8; color:#DAE1E7">make</span> <span style="background-color:#E2E8E8; color:#DAE1E7">her</span> <span style="background-color:#E2E8E8; color:#DAE1E7">a</span> <span style="background-color:#E2E8E8; color:#DAE1E7">feisty</span> <span style="background-color:#E2E8E8; color:#DAE1E7">magazine</span> <span style="background-color:#E2E8E8; color:#DAE1E7">editor</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">and</span> <span style="background-color:#E2E8E8; color:#DAE1E7">we</span> <span style="background-color:#E2E8E8; color:#DAE1E7">'</span> <span style="background-color:#E2E8E8; color:#DAE1E7">ll</span> <span style="background-color:#E2E8E8; color:#DAE1E7">make</span> <span style="background-color:#E2E8E8; color:#DAE1E7">him</span> <span style="background-color:#E2E8E8; color:#DAE1E7">a</span> <span style="background-color:#E2E8E8; color:#DAE1E7">crusty</span> <span style="background-color:#E2E8E8; color:#DAE1E7">old</span> <span style="background-color:#E2E8E8; color:#DAE1E7">pilot</span> <span style="background-color:#E2E8E8; color:#DAE1E7">.</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">but</span> <span style="background-color:#E2E8E8; color:#DAE1E7">wait</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">she</span> <span style="background-color:#E2E8E8; color:#DAE1E7">has</span> <span style="background-color:#E2E8E8; color:#DAE1E7">to</span> <span style="background-color:#E2E8E8; color:#DAE1E7">have</span> <span style="background-color:#E2E8E8; color:#DAE1E7">a</span> <span style="background-color:#E2E8E8; color:#DAE1E7">fianc</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#FBDFC2; color:#BE0004">e</span> <span style="background-color:#FBDFC2; color:#BE0004">;</span> <span style="background-color:#FBDFC2; color:#BE0004">that</span> <span style="background-color:#FBDFC2; color:#BE0004">can</span> <span style="background-color:#FBDFC2; color:#BE0004">be</span> <span style="background-color:#FBDFC2; color:#BE0004">david</span> <span style="background-color:#FBDFC2; color:#BE0004">sch</span> <span style="background-color:#FBDFC2; color:#BE0004">.</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">but</span> <span style="background-color:#E2E8E8; color:#DAE1E7">wait</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">if</span> <span style="background-color:#E2E8E8; color:#DAE1E7">she</span> <span style="background-color:#E2E8E8; color:#DAE1E7">has</span> <span style="background-color:#E2E8E8; color:#DAE1E7">a</span> <span style="background-color:#E2E8E8; color:#DAE1E7">fianc</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#FBDFC2; color:#BE0004">e</span> <span style="background-color:#FBDFC2; color:#BE0004">,</span> <span style="background-color:#FBDFC2; color:#BE0004">how</span> <span style="background-color:#FBDFC2; color:#BE0004">will</span> <span style="background-color:#FBDFC2; color:#BE0004">she</span> <span style="background-color:#FBDFC2; color:#BE0004">and</span> <span style="background-color:#FBDFC2; color:#BE0004">harrison</span> <span style="background-color:#FBDFC2; color:#BE0004">ford</span> <span style="background-color:#FBDFC2; color:#BE0004">crash</span> <span style="background-color:#FBDFC2; color:#BE0004">on</span> <span style="background-color:#FBDFC2; color:#BE0004">the</span> <span style="background-color:#FBDFC2; color:#BE0004">island</span> <span style="background-color:#FBDFC2; color:#BE0004">alone</span> <span style="background-color:#FBDFC2; color:#BE0004">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#FBDFC2; color:#BE0004">i</span> <span style="background-color:#FBDFC2; color:#BE0004">know</span> <span style="background-color:#FBDFC2; color:#BE0004">!</span> <span style="background-color:#FBDFC2; color:#BE0004">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">they</span> <span style="background-color:#E2E8E8; color:#DAE1E7">'</span> <span style="background-color:#E2E8E8; color:#DAE1E7">ll</span> <span style="background-color:#E2E8E8; color:#DAE1E7">get</span> <span style="background-color:#E2E8E8; color:#DAE1E7">to</span> <span style="background-color:#E2E8E8; color:#DAE1E7">their</span> <span style="background-color:#E2E8E8; color:#DAE1E7">vacation</span> <span style="background-color:#E2E8E8; color:#DAE1E7">spot</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">and</span> <span style="background-color:#E2E8E8; color:#DAE1E7">then</span> <span style="background-color:#E2E8E8; color:#DAE1E7">she</span> <span style="background-color:#E2E8E8; color:#DAE1E7">'</span> <span style="background-color:#E2E8E8; color:#DAE1E7">ll</span> <span style="background-color:#E2E8E8; color:#DAE1E7">get</span> <span style="background-color:#E2E8E8; color:#DAE1E7">called</span> <span style="background-color:#E2E8E8; color:#DAE1E7">back</span> <span style="background-color:#E2E8E8; color:#DAE1E7">!</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">yesss</span> <span style="background-color:#E2E8E8; color:#DAE1E7">!</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">so</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">they</span> <span style="background-color:#E2E8E8; color:#DAE1E7">'</span> <span style="background-color:#E2E8E8; color:#DAE1E7">ll</span> <span style="background-color:#E2E8E8; color:#DAE1E7">crash</span> <span style="background-color:#E2E8E8; color:#DAE1E7">on</span> <span style="background-color:#E2E8E8; color:#DAE1E7">the</span> <span style="background-color:#E2E8E8; color:#DAE1E7">island</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">and</span> <span style="background-color:#E2E8E8; color:#DAE1E7">that</span> <span style="background-color:#E2E8E8; color:#DAE1E7">will</span> <span style="background-color:#E2E8E8; color:#DAE1E7">be</span> <span style="background-color:#E2E8E8; color:#DAE1E7">funny</span> <span style="background-color:#E2E8E8; color:#DAE1E7">for</span> <span style="background-color:#E2E8E8; color:#DAE1E7">about</span> <span style="background-color:#E2E8E8; color:#DAE1E7">five</span> <span style="background-color:#E2E8E8; color:#DAE1E7">minutes</span> <span style="background-color:#E2E8E8; color:#DAE1E7">.</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">shucks</span> <span style="background-color:#E2E8E8; color:#DAE1E7">.</span> <span style="background-color:#FBDFC2; color:#BE0004">oh</span> <span style="background-color:#FBDFC2; color:#BE0004">,</span> <span style="background-color:#FBDFC2; color:#BE0004">i</span> <span style="background-color:#FBDFC2; color:#BE0004">'</span> <span style="background-color:#FBDFC2; color:#BE0004">ve</span> <span style="background-color:#FBDFC2; color:#BE0004">got</span> <span style="background-color:#FBDFC2; color:#BE0004">it</span> <span style="background-color:#FBDFC2; color:#BE0004">!</span> <span style="background-color:#FBDFC2; color:#BE0004">?</span> <span style="background-color:#FBDFC2; color:#BE0004">we</span> <span style="background-color:#FBDFC2; color:#BE0004">'</span> <span style="background-color:#FBDFC2; color:#BE0004">ll</span> <span style="background-color:#FBDFC2; color:#BE0004">throw</span> <span style="background-color:#FBDFC2; color:#BE0004">in</span> <span style="background-color:#FBDFC2; color:#BE0004">a</span> <span style="background-color:#FBDFC2; color:#BE0004">distracting</span> <span style="background-color:#FBDFC2; color:#BE0004">subpl</span> <span style="background-color:#FBDFC2; color:#BE0004">in</span> <span style="background-color:#FBDFC2; color:#BE0004">which</span> <span style="background-color:#FBDFC2; color:#BE0004">her</span> <span style="background-color:#FBDFC2; color:#BE0004">fianc</span> <span style="background-color:#FBDFC2; color:#BE0004">?</span> <span style="background-color:#FBDFC2; color:#BE0004">e</span> <span style="background-color:#FBDFC2; color:#BE0004">has</span> <span style="background-color:#FBDFC2; color:#BE0004">sex</span> <span style="background-color:#FBDFC2; color:#BE0004">with</span> <span style="background-color:#FBDFC2; color:#BE0004">a</span> <span style="background-color:#FBDFC2; color:#BE0004">really</span> <span style="background-color:#FBDFC2; color:#BE0004">attractive</span> <span style="background-color:#FBDFC2; color:#BE0004">woman</span> <span style="background-color:#FBDFC2; color:#BE0004">who</span> <span style="background-color:#FBDFC2; color:#BE0004">acts</span> <span style="background-color:#FBDFC2; color:#BE0004">like</span> <span style="background-color:#FBDFC2; color:#BE0004">a</span> <span style="background-color:#FBDFC2; color:#BE0004">bimbo</span> <span style="background-color:#FBDFC2; color:#BE0004">,</span> <span style="background-color:#FBDFC2; color:#BE0004">and</span> <span style="background-color:#FBDFC2; color:#BE0004">then</span> <span style="background-color:#FBDFC2; color:#BE0004">he</span> <span style="background-color:#FBDFC2; color:#BE0004">can</span> <span style="background-color:#FBDFC2; color:#BE0004">feel</span> <span style="background-color:#FBDFC2; color:#BE0004">guilty</span> <span style="background-color:#FBDFC2; color:#BE0004">.</span> <span style="background-color:#FBDFC2; color:#BE0004">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">then</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">when</span> <span style="background-color:#E2E8E8; color:#DAE1E7">anne</span> <span style="background-color:#E2E8E8; color:#DAE1E7">heche</span> <span style="background-color:#E2E8E8; color:#DAE1E7">kisses</span> <span style="background-color:#E2E8E8; color:#DAE1E7">harrison</span> <span style="background-color:#E2E8E8; color:#DAE1E7">ford</span> <span style="background-color:#E2E8E8; color:#DAE1E7">(</span> <span style="background-color:#E2E8E8; color:#DAE1E7">they</span> <span style="background-color:#E2E8E8; color:#DAE1E7">have</span> <span style="background-color:#E2E8E8; color:#DAE1E7">to</span> <span style="background-color:#E2E8E8; color:#DAE1E7">kiss</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">because</span> <span style="background-color:#E2E8E8; color:#DAE1E7">otherwise</span> <span style="background-color:#E2E8E8; color:#DAE1E7">nobody</span> <span style="background-color:#E2E8E8; color:#DAE1E7">will</span> <span style="background-color:#E2E8E8; color:#DAE1E7">want</span> <span style="background-color:#E2E8E8; color:#DAE1E7">to</span> <span style="background-color:#E2E8E8; color:#DAE1E7">see</span> <span style="background-color:#E2E8E8; color:#DAE1E7">the</span> <span style="background-color:#E2E8E8; color:#DAE1E7">movie</span> <span style="background-color:#E2E8E8; color:#DAE1E7">)</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">it</span> <span style="background-color:#E2E8E8; color:#DAE1E7">will</span> <span style="background-color:#E2E8E8; color:#DAE1E7">be</span> <span style="background-color:#E2E8E8; color:#DAE1E7">a</span> <span style="background-color:#E2E8E8; color:#DAE1E7">vindicated</span> <span style="background-color:#E2E8E8; color:#DAE1E7">action</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">because</span> <span style="background-color:#E2E8E8; color:#DAE1E7">her</span> <span style="background-color:#E2E8E8; color:#DAE1E7">fianc</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">e</span> <span style="background-color:#E2E8E8; color:#DAE1E7">will</span> <span style="background-color:#E2E8E8; color:#DAE1E7">already</span> <span style="background-color:#E2E8E8; color:#DAE1E7">have</span> <span style="background-color:#E2E8E8; color:#DAE1E7">cheated</span> <span style="background-color:#E2E8E8; color:#DAE1E7">on</span> <span style="background-color:#E2E8E8; color:#DAE1E7">her</span> <span style="background-color:#E2E8E8; color:#DAE1E7">!</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#FBDFC2; color:#BE0004">then</span> <span style="background-color:#FBDFC2; color:#BE0004">,</span> <span style="background-color:#FBDFC2; color:#BE0004">for</span> <span style="background-color:#FBDFC2; color:#BE0004">no</span> <span style="background-color:#FBDFC2; color:#BE0004">obvious</span> <span style="background-color:#FBDFC2; color:#BE0004">reason</span> <span style="background-color:#FBDFC2; color:#BE0004">,</span> <span style="background-color:#FBDFC2; color:#BE0004">they</span> <span style="background-color:#FBDFC2; color:#BE0004">'</span> <span style="background-color:#FBDFC2; color:#BE0004">ll</span> <span style="background-color:#FBDFC2; color:#BE0004">accidentally</span> <span style="background-color:#FBDFC2; color:#BE0004">run</span> <span style="background-color:#FBDFC2; color:#BE0004">into</span> <span style="background-color:#FBDFC2; color:#BE0004">pirates</span> <span style="background-color:#FBDFC2; color:#BE0004">who</span> <span style="background-color:#FBDFC2; color:#BE0004">try</span> <span style="background-color:#FBDFC2; color:#BE0004">to</span> <span style="background-color:#FBDFC2; color:#BE0004">kill</span> <span style="background-color:#FBDFC2; color:#BE0004">them</span> <span style="background-color:#FBDFC2; color:#BE0004">.</span> <span style="background-color:#FBDFC2; color:#BE0004">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">oh</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">yes</span> <span style="background-color:#E2E8E8; color:#DAE1E7">!</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">i</span> <span style="background-color:#E2E8E8; color:#DAE1E7">feel</span> <span style="background-color:#E2E8E8; color:#DAE1E7">so</span> <span style="background-color:#E2E8E8; color:#DAE1E7">good</span> <span style="background-color:#E2E8E8; color:#DAE1E7">about</span> <span style="background-color:#E2E8E8; color:#DAE1E7">this</span> <span style="background-color:#E2E8E8; color:#DAE1E7">story</span> <span style="background-color:#E2E8E8; color:#DAE1E7">.</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">instead</span> <span style="background-color:#E2E8E8; color:#DAE1E7">of</span> <span style="background-color:#E2E8E8; color:#DAE1E7">using</span> <span style="background-color:#E2E8E8; color:#DAE1E7">characterization</span> <span style="background-color:#E2E8E8; color:#DAE1E7">to</span> <span style="background-color:#E2E8E8; color:#DAE1E7">propel</span> <span style="background-color:#E2E8E8; color:#DAE1E7">the</span> <span style="background-color:#E2E8E8; color:#DAE1E7">events</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">it</span> <span style="background-color:#E2E8E8; color:#DAE1E7">will</span> <span style="background-color:#E2E8E8; color:#DAE1E7">be</span> <span style="background-color:#E2E8E8; color:#DAE1E7">completely</span> <span style="background-color:#E2E8E8; color:#DAE1E7">random</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">and</span> <span style="background-color:#E2E8E8; color:#DAE1E7">yet</span> <span style="background-color:#E2E8E8; color:#DAE1E7">totally</span> <span style="background-color:#E2E8E8; color:#DAE1E7">predictable</span> <span style="background-color:#E2E8E8; color:#DAE1E7">!</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">imagine</span> <span style="background-color:#E2E8E8; color:#DAE1E7">that</span> <span style="background-color:#E2E8E8; color:#DAE1E7">.</span> <span style="background-color:#E2E8E8; color:#DAE1E7">do</span> <span style="background-color:#E2E8E8; color:#DAE1E7">n</span> <span style="background-color:#E2E8E8; color:#DAE1E7">'</span> <span style="background-color:#E2E8E8; color:#DAE1E7">t</span> <span style="background-color:#E2E8E8; color:#DAE1E7">get</span> <span style="background-color:#E2E8E8; color:#DAE1E7">me</span> <span style="background-color:#E2E8E8; color:#DAE1E7">wrong</span> <span style="background-color:#E2E8E8; color:#DAE1E7">-</span> <span style="background-color:#E2E8E8; color:#DAE1E7">-</span> <span style="background-color:#FBDFC2; color:#BE0004">six</span> <span style="background-color:#FBDFC2; color:#BE0004">days</span> <span style="background-color:#FBDFC2; color:#BE0004">,</span> <span style="background-color:#FBDFC2; color:#BE0004">seven</span> <span style="background-color:#FBDFC2; color:#BE0004">nights</span> <span style="background-color:#FBDFC2; color:#BE0004">is</span> <span style="background-color:#FBDFC2; color:#BE0004">not</span> <span style="background-color:#FBDFC2; color:#BE0004">a</span> <span style="background-color:#FBDFC2; color:#BE0004">boring</span> <span style="background-color:#FBDFC2; color:#BE0004">picture</span> <span style="background-color:#FBDFC2; color:#BE0004">;</span> <span style="background-color:#FBDFC2; color:#BE0004">ford</span> <span style="background-color:#FBDFC2; color:#BE0004">and</span> <span style="background-color:#FBDFC2; color:#BE0004">heche</span> <span style="background-color:#FBDFC2; color:#BE0004">both</span> <span style="background-color:#FBDFC2; color:#BE0004">do</span> <span style="background-color:#FBDFC2; color:#BE0004">a</span> <span style="background-color:#FBDFC2; color:#BE0004">great</span> <span style="background-color:#FBDFC2; color:#BE0004">job</span> <span style="background-color:#FBDFC2; color:#BE0004">.</span> <span style="background-color:#E2E8E8; color:#DAE1E7">?</span> <span style="background-color:#E2E8E8; color:#DAE1E7">the</span> <span style="background-color:#E2E8E8; color:#DAE1E7">sparks</span> <span style="background-color:#E2E8E8; color:#DAE1E7">fly</span> <span style="background-color:#E2E8E8; color:#DAE1E7">between</span> <span style="background-color:#E2E8E8; color:#DAE1E7">them</span> <span style="background-color:#E2E8E8; color:#DAE1E7">,</span> <span style="background-color:#E2E8E8; color:#DAE1E7">and</span> <span style="background-color:#E2E8E8; color:#DAE1E7">so</span> <span style="background-color:#E2E8E8; color:#DAE1E7">most</span> <span style="background-color:#E2E8E8; color:#DAE1E7">of</span> <span style="background-color:#E2E8E8; color:#DAE1E7">browning</span> <span style="background-color:#E2E8E8; color:#DAE1E7">'</span> <span style="background-color:#E2E8E8; color:#DAE1E7">s</span> <span style="background-color:#E2E8E8; color:#DAE1E7">inane</span> <span style="background-color:#E2E8E8; color:#DAE1E7">dialogue</span> <span style="background-color:#E2E8E8; color:#DAE1E7"><PAD></span> <span style="background-color:#E2E8E8; color:#DAE1E7"><PAD></span> <span style="background-color:#E2E8E8; color:#DAE1E7"><PAD></span> <span style="background-color:#E2E8E8; color:#DAE1E7"><PAD></span> <span style="background-color:#E2E8E8; color:#DAE1E7"><PAD></span> <span style="background-color:#E2E8E8; color:#DAE1E7"><PAD></span> <span style="background-color:#E2E8E8; color:#DAE1E7"><PAD></span> <span style="background-color:#E2E8E8; color:#DAE1E7"><PAD></span> <span style="background-color:#E2E8E8; color:#DAE1E7"><PAD></span> <span style="background-color:#E2E8E8; color:#DAE1E7"><PAD></span></div></p>  
+                            </p>
+            
+                        <div class="card-body">
+
+                                <li class="list-group-item">
+                                    <div class="card-body">
+                                        <p class="card-text">
+                                            <span><strong>Question1</strong></span>: What sentiment label will you predict given highlighted <strong>Rationales</strong>?
+                                        </p>
+
+                                        <div id="viewer-checkbox-container" class="text-center" style="margin: 10px auto 10px auto;">
+                                            <div class="form-check form-check-inline">
+                                                <button type="button" class="btn btn-danger" style="margin-right:50px">Positive</button>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <button type="button" class="btn btn-warning" style="margin-left:50px;margin-right:50px">Negative</button>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <button type="button" class="btn btn-secondary" style="margin-left:50px">Can't Tell</button>
+                                            </div>
+                                        </div>
+
+                                        
+                                        
+
+                                    </div>
+                                </li>
+
+                                <li class="list-group-item">
+                                    <div class="card-body"  id="question2">
+                                        <p class="card-text">
+                                            <span><strong>Question2</strong></span>: How <strong>Confident</strong> are you in your above selection?
+                                        </p>
+                                        <div id="viewer-checkbox-container" class="text-left" style="margin: 10px auto 10px auto;">
+                                        
+                                        <button type="button" class="btn btn-outline-primary covid-focus-btn unselected-focus" style="margin-bottom:10px">3 - Very Confident (Go to next review)</button>
+                                        <span class="text-primary"> - The rationale shows clear sentiment comment on the movie review.</span>
+                                        <br>
+                                        <button covid-focus="background" type="button" class="btn btn-outline-info covid-focus-btn unselected-focus" style="margin-bottom:10px">2 - Hesitating (Need longer rationale)</button>
+                                        <span class="text-info"> - The rationale shows sentimental words, but might not directly for this movie.</span>
+                                        <br>
+                                        <button covid-focus="background" type="button" class="btn btn-outline-secondary covid-focus-btn unselected-focus">1 - I don't know (Need longer rationale)</button>
+                                        <span class="text-secondary"> - The rationale doesn't show sentimental information on the movie.</span>
+                                        <br>
+                                    </div>
+                                    </div>
+                                </li>
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+
+                <p class="text-center">
+                    <input type="submit" id="submitButton" class="btn btn-primary btn-block" value="Submit HIT">
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    </form>
+
+
+    <script>
+
+        var save_results = {}
+        save_results['ranking'] = {}
+
+        function selectButton(btn) {
+            if (btn.style.backgroundColor == "rgb(235, 235, 235)"){
+                btn.style.backgroundColor = "#0B61FF";
+                save_results[btn.name] = btn.value
+            } else {
+                btn.style.backgroundColor = "#EBEBEB";
+                save_results[btn.name] = null;
+            }
+        }
+
+
+
+        $('#s1-ranking').change(function () {
+            var selectedItem = $('#s1-ranking').val();
+            save_results['ranking']["s1-ranking"] = selectedItem;
+            console.log("ranking-s1", selectedItem)
+        });
+        $('#s3-ranking').change(function () {
+            var selectedItem = $('#s3-ranking').val();
+            save_results['ranking']["s3-ranking"] = selectedItem;
+            console.log("ranking-s3", selectedItem)
+        });
+        $('#s5-ranking').change(function () {
+            var selectedItem = $('#s5-ranking').val();
+            save_results['ranking']["s5-ranking"] = selectedItem;
+            console.log("ranking-s5", selectedItem)
+        });
+        $('#s7-ranking').change(function () {
+            var selectedItem = $('#s7-ranking').val();
+            save_results['ranking']["s7-ranking"] = selectedItem;
+        });
+        $('#s9-ranking').change(function () {
+            var selectedItem = $('#s9-ranking').val();
+            save_results['ranking']["s9-ranking"] = selectedItem;
+        });
+        
+
+
+        function OnSubmit(){
+
+            var q1_results = document.getElementsByName('s1-inlineRadioOptions');
+            for(i=0; i< q1_results.length; i++) {
+                if (q1_results[i].checked){
+                    save_results[q1_results[i].id] = q1_results[i].value
+                }
+            }
+
+            var q3_results = document.getElementsByName('s3-inlineRadioOptions');
+            for(i=0; i< q3_results.length; i++) {
+                if (q3_results[i].checked){
+                    save_results[q3_results[i].id] = q3_results[i].value
+                }
+            }
+
+            var q5_results = document.getElementsByName('s5-inlineRadioOptions');
+            for(i=0; i< q5_results.length; i++) {
+                if (q5_results[i].checked){
+                    save_results[q5_results[i].id] = q5_results[i].value
+                }
+            }
+
+            var q7_results = document.getElementsByName('s7-inlineRadioOptions');
+            for(i=0; i< q7_results.length; i++) {
+                if (q7_results[i].checked){
+                    save_results[q7_results[i].id] = q7_results[i].value
+                }
+            }
+
+            var q9_results = document.getElementsByName('s9-inlineRadioOptions');
+            for(i=0; i< q9_results.length; i++) {
+                if (q9_results[i].checked){
+                    save_results[q9_results[i].id] = q9_results[i].value
+                }
+            }
+
+
+            // Feedback
+            var feedback = document.getElementById('FormControlTextarea').value;
+            save_results['feedback'] = feedback;
+
+            // Rank
+            console.log("ranking results:", save_results['ranking'])
+
+
+            //saving to localStorage
+            localStorage.setItem('MyResult', JSON.stringify(save_results) );
+
+
+            function download(content, fileName, contentType) {
+                var a = document.createElement("a");
+                var file = new Blob([content], {type: contentType});
+                a.href = URL.createObjectURL(file);
+                a.download = fileName;
+                a.click();
+            }
+
+            // download(localStorage["MyResult"], 'json.txt', 'text/plain');
+            download(localStorage["MyResult"], '{{save_file}}', 'text/plain');
+        }
+
+
+    </script>
+
+    <style type="text/css">
+
+    .color-background{
+        background-color: #a6cee3;
+        color:black;
+    }
+    .color-purpose{
+        background-color: #1f78b4;
+        color:white;
+    }
+    .color-method{
+        background-color: #b2df8a;
+        color:black;
+    }
+    .color-finding{
+        background-color: #33a02c;
+        color:white;
+    }
+    .color-other{
+        background-color: black;
+        color:white;
+    }
+
+    .highlight-rationale{
+        background-color:#FBDFC2;
+        color:#BE0004
+    }
+    .dehighlight-rationale{
+        background-color:#E2E8E8;
+        color:#DAE1E7
+    }
+
+    </style>
+
+
+
+
+    <script language="Javascript">turkSetAssignmentID();</script>
+
+    </body>
+</html>
+
